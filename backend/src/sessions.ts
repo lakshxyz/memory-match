@@ -1,4 +1,5 @@
 import { getDb } from './db';
+import { appendRecord } from './records';
 import type { GameSession, CreateSessionBody } from './types';
 
 export function createSession(data: CreateSessionBody): GameSession {
@@ -24,7 +25,9 @@ export function createSession(data: CreateSessionBody): GameSession {
     data.completed ? 1 : 0
   );
 
-  return getSession(data.id) as GameSession;
+  const saved = getSession(data.id) as GameSession;
+  appendRecord(saved);
+  return saved;
 }
 
 export function getSession(id: string): GameSession | undefined {

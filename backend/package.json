@@ -8,7 +8,8 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "test": "vitest run --reporter=verbose",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "records": "node scripts/view-records.js"
   },
   "dependencies": {
     "cors": "2.8.5",
